@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-name = 'measure_yfactor_search_sis_vol_direction'
+name = 'yfactor_with_v'
 
 import sys
 import rospy
@@ -9,7 +9,8 @@ import std_msgs.msg
 import numpy as np
 import argparse
 
-sys.path.append("/home/exito/ros/src/necst-core/scripts")
+sys.path.append("~/ros/src/necst-core/scripts")
+sys.path.append("~/ros/src/necst-sisrx_2sb/scripts")
 
 import controller
 import core_controller
@@ -17,21 +18,18 @@ import core_controller
 rospy.init_node(name)
 
 sis = controller.sis()
-loatt = controller.loatt()
 logger = core_controller.logger()
 
-parser = argparse.ArgumentParser(description = 'search optical sis voltage value')
+date = datetime.datetime.today().strftime('%Y%m%d_%H%M%S')
+file_name = name + '/' + date + '.necstdb'
+print(file_name)
 
-parser.add_argument('save_name', type = str, help = 'set saving file name')
-
-args = parser.parse_args()
-
-file_name = '/home/exito/data/logger/%s'%(args.save_name)
-volp = np.linespace(-1, 0, 5)   #search optimal SIS voltage value
+vol = np.linespace(0, 8, 800)   #search optimal SIS voltage value
+sis.set_v(0)
 logger.start(file_name)
-for vp in volp:             #measure y-factor
-    sis.set_vp(vp)
-    time.sleep(1)
+for v in vol:             #measure y-factor
+    sis.set_v(v)
+    time.sleep(0.03)
     continue
-sis.set_vgap(0)
 logger.stop()
+sis.set_v(0)
