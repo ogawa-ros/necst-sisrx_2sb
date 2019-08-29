@@ -24,8 +24,8 @@ file_name_hot = name  + '/hot/' + date + '.necstdb'
 file_name_cold = name + '/cold/' + date + '.necstdb'
 print(file_name)
 
-sis_v = input("")
-sis.set_v()
+sis_v = input("How much voltage ? [mV]")
+sis.set_v(sis_v)
 time.sleep(1)
 input('READY HOT MEASUREMENT? PRESS ENTER!!')
 logger.start(file_name_hot)
