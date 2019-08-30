@@ -9,8 +9,7 @@ import std_msgs.msg
 import numpy
 import argparse
 
-sys.path.append("~/ros/src/necst-core/scripts")
-sys.path.append("~/ros/src/necst-sisrx_2sb/scripts")
+sys.path.append("../../necst-core/scripts")
 
 import controller
 import core_controller
