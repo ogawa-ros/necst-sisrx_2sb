@@ -8,6 +8,8 @@ import time
 import std_msgs.msg
 import numpy as np
 import argparse
+import datetime
+
 
 sys.path.append("../../necst-core/scripts")
 
