@@ -29,8 +29,8 @@ vol = np.linspace(0, 1.5, 300)   #search optimal SIS voltage value
 
 
 date = datetime.datetime.today().strftime('%Y%m%d_%H%M%S')
-file_name_hot = name  + date +'/hot/' + date + '.necstdb'
-file_name_cold = name + date +'/cold/' + date + '.necstdb'
+file_name_hot = name  + '/'+date +'/hot/' + date + '.necstdb'
+file_name_cold = name + '/'+date +'/cold/' + date + '.necstdb'
 print(file_name_hot)
 print(file_name_cold)
 
