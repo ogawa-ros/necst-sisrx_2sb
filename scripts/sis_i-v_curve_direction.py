@@ -24,8 +24,8 @@ date = datetime.datetime.today().strftime('%Y%m%d_%H%M%S')
 file_name = name + '/' + date + '.necstdb'
 print(file_name)
 
-sis_vgap = numpy.arange(-1.5, 1.5, 0.001)
-sis.set_vgap(-1.5)
+sis_vgap = numpy.arange(0.3, 1, 0.01)
+sis.set_vgap(0.3)
 time.sleep(3)
 logger.start(file_name)
 for vgap in sis_vgap:
