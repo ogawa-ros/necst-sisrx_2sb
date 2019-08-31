@@ -41,7 +41,7 @@ sis.set_vgap(0)
 logger.start(file_name_hot)
 for v in vol:             #measure y-factor
     sis.set_vgap(v)
-    time.sleep(0.03)
+    time.sleep(0.1)
     continue
 logger.stop()
 
