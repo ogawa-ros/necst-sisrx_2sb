@@ -25,12 +25,31 @@ date = datetime.datetime.today().strftime('%Y%m%d_%H%M%S')
 file_name = name + '/' + date + '.necstdb'
 print(file_name)
 
-vol = np.linespace(0, 8, 800)   #search optimal SIS voltage value
-sis.set_v(0)
-logger.start(file_name)
+vol = np.linespace(0, 1.5, 300)   #search optimal SIS voltage value
+
+
+date = datetime.datetime.today().strftime('%Y%m%d_%H%M%S')
+file_name_hot = name  + '/hot/' + date + '.necstdb'
+file_name_cold = name + '/cold/' + date + '.necstdb'
+print(file_name)
+
+
+time.sleep(1)
+input('READY HOT MEASUREMENT? PRESS ENTER!!')
+sis.set_vgap(0)
+logger.start(file_name_hot)
 for v in vol:             #measure y-factor
-    sis.set_v(v)
+    sis.set_vgap(v)
     time.sleep(0.03)
     continue
 logger.stop()
-sis.set_v(0)
+
+
+input('READY COLD MEASUREMENT? PRESS ENTER!!')
+sis.set_vgap(0)
+logger.start(file_name_cold)
+for v in vol:             #measure y-factor
+    sis.set_vgap(v)
+    time.sleep(0.03)
+    continue
+logger.stop()
