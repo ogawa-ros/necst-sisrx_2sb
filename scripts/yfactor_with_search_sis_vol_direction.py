@@ -25,7 +25,7 @@ date = datetime.datetime.today().strftime('%Y%m%d_%H%M%S')
 file_name = name + '/' + date + '.necstdb'
 print(file_name)
 
-vol = np.linspace(0.8, 1.2, 300)   #search optimal SIS voltage value
+vol = np.linspace(0.3, 0.8, 300)   #search optimal SIS voltage value
 
 
 date = datetime.datetime.today().strftime('%Y%m%d_%H%M%S')
@@ -41,7 +41,7 @@ sis.set_vgap(0)
 logger.start(file_name_hot)
 for v in vol:             #measure y-factor
     sis.set_vgap(v)
-    time.sleep(0.2)
+    time.sleep(0.3)
     continue
 logger.stop()
 
@@ -51,6 +51,8 @@ sis.set_vgap(0)
 logger.start(file_name_cold)
 for v in vol:             #measure y-factor
     sis.set_vgap(v)
-    time.sleep(0.2)
+    time.sleep(0.3)
     continue
 logger.stop()
+
+sis.set_vgap(0)
