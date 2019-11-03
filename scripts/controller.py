@@ -64,6 +64,8 @@ class sis(object):
         self.make_pub.publish(topic_name, data_class, msg = command)
         return
 
+    def set_v(self):
+        pass
 
 class irr(object):
 
