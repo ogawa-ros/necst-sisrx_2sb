@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-name = 'sis_p-i-v_with_spectrometer'
+name = 'sis_p-i-v_by_spectrometer'
 
 import sys
 import rospy
