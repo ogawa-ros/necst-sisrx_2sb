@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-name = 'yfactor_by_soectrometer'
+name = 'yfactor_by_spectrometer'
 
 import sys
 import rospy
